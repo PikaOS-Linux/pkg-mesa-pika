@@ -29,9 +29,9 @@ Depends:
  mesa-vdpau-drivers,
  mesa-vulkan-drivers-git,
 Pre-Depends: ${misc:Pre-Depends}
-Conflicts: mesa-stable, mesa-git, libmesa-stable, libmesa-git
-Replaces: mesa-stable, mesa-git, libmesa-stable, libmesa-git
-Provides: mesa-stable, mesa-git, libmesa-stable, libmesa-git
+Conflicts: mesa-stable, mesa-git, mesa-custom, libmesa-stable, libmesa-git, libmesa-custom
+Replaces: mesa-stable, mesa-git, mesa-custom, libmesa-stable, libmesa-git, libmesa-custom
+Provides: mesa-stable, mesa-git, libmesa-stable, libmesa-git, libmesa-hybrid
 Multi-Arch: same
 Description: a meta package to install the latest stable version of mesa, except with the latest git vulkan drivers.
 
@@ -59,7 +59,8 @@ Depends:
  mesa-vdpau-drivers,
  mesa-vulkan-drivers,
 Pre-Depends: ${misc:Pre-Depends}
-Conflicts: mesa-stable, mesa-git, mesa-pika, libmesa-stable, libmesa-git, libmesa-pika
-Replaces: mesa-stable, mesa-git, mesa-pika, libmesa-stable, libmesa-git, libmesa-pika
+Provides: libmesa-custom 
+Conflicts: mesa-stable, mesa-git, mesa-hybrid, libmesa-stable, libmesa-git, libmesa-hybrid
+Replaces: mesa-stable, mesa-git, mesa-hybrid, libmesa-stable, libmesa-git, libmesa-hybrid
 Multi-Arch: same
 Description: a meta package to install custom mesa drivers from the likes of oibaf and kisak.
