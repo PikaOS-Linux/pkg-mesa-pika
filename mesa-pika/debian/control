@@ -8,6 +8,7 @@ Build-Depends: debhelper-compat (= 13)
 Package: mesa-hybrid
 Section: libs
 Architecture: any
+Depends:
  ${shlibs:Depends},
  ${misc:Depends},
  libd3dadapter9-mesa,
@@ -37,6 +38,7 @@ Description: a meta package to install the latest stable version of mesa, except
 Package: mesa-custom
 Section: libs
 Architecture: any
+Depends:
  ${shlibs:Depends},
  ${misc:Depends},
  libd3dadapter9-mesa,
