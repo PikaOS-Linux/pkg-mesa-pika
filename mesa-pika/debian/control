@@ -48,7 +48,7 @@ Depends:
  libgbm-dev,
  libgbm1,
  libgl1-mesa-dri,
- libgl1-mesa-glx,the latest stable version of mesa, except with the latest git vulkan driver
+ libgl1-mesa-glx,
  libglapi-mesa,
  libgles2-mesa,
  libglx-mesa0,
