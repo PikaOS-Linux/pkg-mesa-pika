@@ -1,17 +1,11 @@
-#! /bin/bash
-set -e
+# Sign the packages
+dpkg-sig --sign builder ./output/*.deb
 
-# Clone Upstream
-cd ./mesa-pika
+# Pull down existing ppa repo db files etc
+rsync -azP --exclude '*.deb' ferreo@direct.pika-os.com:/srv/www/pikappa/ ./output/repo
 
-# Get build deps
-apt-get build-dep ./ -y
+# Add the new package to the repo
+reprepro -V --basedir ./output/repo/ includedeb lunar ./output/*.deb
 
-# Build package
-
-dpkg-buildpackage --no-sign
-
-# Move the debs to output
-cd ../
-mkdir -p ./output
-mv ./*.deb ./output/
+# Push the updated ppa repo to the server
+rsync -azP ./output/repo/ ferreo@direct.pika-os.com:/srv/www/pikappa/
