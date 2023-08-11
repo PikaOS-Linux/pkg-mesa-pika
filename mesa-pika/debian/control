@@ -1,0 +1,63 @@
+Source: mesa-pika
+Section: graphics
+Priority: optional
+Maintainer: Ward Nakchbandi <hotrod.master@hotmail.com>
+Standards-Version: 4.6.1
+Build-Depends: debhelper-compat (= 13)
+
+Package: mesa-hybrid
+Section: libs
+Architecture: any
+ ${shlibs:Depends},
+ ${misc:Depends},
+ libd3dadapter9-mesa,
+ libegl-mesa0,
+ libegl1-mesa-dev,
+ libegl1-mesa,
+ libgbm-dev,
+ libgbm1,
+ libgl1-mesa-dri,
+ libgl1-mesa-glx,
+ libglapi-mesa,
+ libgles2-mesa,
+ libglx-mesa0,
+ libosmesa6,
+ libxatracker2,
+ mesa-common-dev,
+ mesa-va-drivers,
+ mesa-vdpau-drivers,
+ mesa-vulkan-drivers-git,
+Pre-Depends: ${misc:Pre-Depends}
+Conflicts: mesa-stable, mesa-git, libmesa-stable, libmesa-git
+Replaces: mesa-stable, mesa-git, libmesa-stable, libmesa-git
+Provides: mesa-stable, mesa-git, libmesa-stable, libmesa-git
+Multi-Arch: same
+Description: a meta package to install the latest stable version of mesa, except with the latest git vulkan drivers.
+
+Package: mesa-custom
+Section: libs
+Architecture: any
+ ${shlibs:Depends},
+ ${misc:Depends},
+ libd3dadapter9-mesa,
+ libegl-mesa0,
+ libegl1-mesa-dev,
+ libegl1-mesa,
+ libgbm-dev,
+ libgbm1,
+ libgl1-mesa-dri,
+ libgl1-mesa-glx,the latest stable version of mesa, except with the latest git vulkan driver
+ libglapi-mesa,
+ libgles2-mesa,
+ libglx-mesa0,
+ libosmesa6,
+ libxatracker2,
+ mesa-common-dev,
+ mesa-va-drivers,
+ mesa-vdpau-drivers,
+ mesa-vulkan-drivers,
+Pre-Depends: ${misc:Pre-Depends}
+Conflicts: mesa-stable, mesa-git, mesa-pika, libmesa-stable, libmesa-git, libmesa-pika
+Replaces: mesa-stable, mesa-git, mesa-pika, libmesa-stable, libmesa-git, libmesa-pika
+Multi-Arch: same
+Description: a meta package to install custom mesa drivers from the likes of oibaf and kisak.
