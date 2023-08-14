@@ -11,6 +11,8 @@ Architecture: any
 Depends:
  ${shlibs:Depends},
  ${misc:Depends},
+ mesa-hybrid:i386 (= ${binary:Version}) [amd64],
+ mesa-hybrid:amd64 (= ${binary:Version}) [i386],
  libd3dadapter9-mesa,
  libegl-mesa0,
  libegl1-mesa-dev,
@@ -29,13 +31,74 @@ Depends:
  mesa-vdpau-drivers,
  mesa-vulkan-drivers-git,
 Pre-Depends: ${misc:Pre-Depends}
-Conflicts: mesa-stable, mesa-git, mesa-custom, libmesa-stable, libmesa-git, libmesa-custom
-Replaces: mesa-stable, mesa-git, mesa-custom, libmesa-stable, libmesa-git, libmesa-custom
+Conflicts: mesa-stable, mesa-git, mesa-custom, libmesa-stable, libmesa-git, libmesa-custom, mesa-hybrid-no-march, mesa-stable-no-march, mesa-git-no-march, mesa-custom-no-march
+Replaces: mesa-stable, mesa-git, mesa-custom, libmesa-stable, libmesa-git, libmesa-custom, mesa-hybrid-no-march, mesa-stable-no-march, mesa-git-no-march, mesa-custom-no-march
 Provides: mesa-stable, mesa-git, libmesa-stable, libmesa-git, libmesa-hybrid
 Multi-Arch: same
 Description: a meta package to install the latest stable version of mesa, except with the latest git vulkan drivers.
 
+Package: mesa-hybrid-no-march
+Section: libs
+Architecture: any
+Depends:
+ ${shlibs:Depends},
+ ${misc:Depends},
+ libd3dadapter9-mesa,
+ libegl-mesa0,
+ libegl1-mesa-dev,
+ libegl1-mesa,
+ libgbm-dev,
+ libgbm1,
+ libgl1-mesa-dri,
+ libgl1-mesa-glx,
+ libglapi-mesa,
+ libgles2-mesa,
+ libglx-mesa0,
+ libosmesa6,
+ libxatracker2,
+ mesa-common-dev,
+ mesa-va-drivers,
+ mesa-vdpau-drivers,
+ mesa-vulkan-drivers-git,
+Pre-Depends: ${misc:Pre-Depends}
+Conflicts: mesa-stable, mesa-git, mesa-custom, libmesa-stable, libmesa-git, libmesa-custom, mesa-hybrid, mesa-stable-no-march, mesa-git-no-march, mesa-custom-no-march
+Replaces: mesa-stable, mesa-git, mesa-custom, libmesa-stable, libmesa-git, libmesa-custom, mesa-hybrid, mesa-stable-no-march, mesa-git-no-march, mesa-custom-no-march
+Provides: mesa-stable, mesa-git, libmesa-stable, libmesa-git, libmesa-hybrid, mesa-hybrid
+Description: a meta package to install the latest stable version of mesa, except with the latest git vulkan drivers (no Multi-Arch Support).
+
 Package: mesa-custom
+Section: libs
+Architecture: any
+Depends:
+ ${shlibs:Depends},
+ ${misc:Depends},
+ mesa-custom:i386 (= ${binary:Version}) [amd64],
+ mesa-custom:amd64 (= ${binary:Version}) [i386],
+ libd3dadapter9-mesa,
+ libegl-mesa0,
+ libegl1-mesa-dev,
+ libegl1-mesa,
+ libgbm-dev,
+ libgbm1,
+ libgl1-mesa-dri,
+ libgl1-mesa-glx,
+ libglapi-mesa,
+ libgles2-mesa,
+ libglx-mesa0,
+ libosmesa6,
+ libxatracker2,
+ mesa-common-dev,
+ mesa-va-drivers,
+ mesa-vdpau-drivers,
+ mesa-vulkan-drivers,
+Pre-Depends: ${misc:Pre-Depends}
+Provides: libmesa-custom 
+Conflicts: mesa-stable, mesa-git, mesa-hybrid, libmesa-stable, libmesa-git, libmesa-hybrid, mesa-hybrid-no-march, mesa-stable-no-march, mesa-git-no-march, mesa-custom-no-march
+Replaces: mesa-stable, mesa-git, mesa-hybrid, libmesa-stable, libmesa-git, libmesa-hybrid, mesa-hybrid-no-march, mesa-stable-no-march, mesa-git-no-march, mesa-custom-no-march
+Multi-Arch: same
+Description: a meta package to install custom mesa drivers from the likes of oibaf and kisak.
+
+Package: mesa-custom-no-march
 Section: libs
 Architecture: any
 Depends:
@@ -59,8 +122,7 @@ Depends:
  mesa-vdpau-drivers,
  mesa-vulkan-drivers,
 Pre-Depends: ${misc:Pre-Depends}
-Provides: libmesa-custom 
-Conflicts: mesa-stable, mesa-git, mesa-hybrid, libmesa-stable, libmesa-git, libmesa-hybrid
-Replaces: mesa-stable, mesa-git, mesa-hybrid, libmesa-stable, libmesa-git, libmesa-hybrid
-Multi-Arch: same
-Description: a meta package to install custom mesa drivers from the likes of oibaf and kisak.
+Provides: libmesa-custom, mesa-custom
+Conflicts: mesa-stable, mesa-git, mesa-hybrid, libmesa-stable, libmesa-git, libmesa-hybrid, mesa-hybrid-no-march, mesa-stable-no-march, mesa-git-no-march, mesa-custom
+Replaces: mesa-stable, mesa-git, mesa-hybrid, libmesa-stable, libmesa-git, libmesa-hybrid, mesa-hybrid-no-march, mesa-stable-no-march, mesa-git-no-march, mesa-custom
+Description: a meta package to install custom mesa drivers from the likes of oibaf and kisak (no Multi-Arch Support).
